@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  post '/users/sign_up(.:format)' => 'static#sign_up'
-  
+
+  # get 'users/sign_up' => 'users/new'
   root 'static#index'
 
   devise_for :users
