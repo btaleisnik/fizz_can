@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="fixedHeader">
+	<p>You are currently signed in as: <%= "#{current_user.fname}" %></p>
+</div>
 
-<%= yield %>
+	
+	
+	<%= yield %>
 
 </body>
 </html>

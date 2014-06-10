@@ -6,10 +6,18 @@
 	<tbody>
 		<tr>
 			<td>
-				<%= f.email_field :email, placeholder: "Email", autofocus: true %>
+				<%= f.label :email %>
 			</td>
 			<td>
-				<%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
+				<%= f.label :password %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= f.email_field :email, autofocus: true %>
+			</td>
+			<td>
+				<%= f.password_field :password, autocomplete: "off" %>
 			</td>
 			<td>
 				<%= f.submit "Sign in" %>
