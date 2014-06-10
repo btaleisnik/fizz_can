@@ -1,27 +1,47 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <title>FundZone</title> <!-- why doesn't this change in the tab title -->
-  <meta charset="UTF-8">
-</head>
-<body>
-  <div class="fixedHeader">
-   <!-- Sign Up -->
-     <%= render "devise/sessions/new" %>
-  </div>
-</br>
+
+
+<br>
+<!-- Sign In -->
+
+<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>
+	
+<!-- Sign-Up -->
+<%= link_to('Sign Up', '/users/sign_up') %>
 </br>
 
-</br>
+<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+  <%= devise_error_messages! %>
 
-</br>
+<div>
+  <%= f.text_field :fname, placeholder: "First Name" %></div>
 
-</br>
-</br>
+<div><br />
+  <%= f.text_field :lname, placeholder: "Last Name" %></div>
 
-  <div id="sign_up_form">
-  <!-- Sign-In -->
-  <%= render "devise/registrations/new" %>
-  </div>
-</body>
-</html>
+  <div><br />
+  <%= f.email_field :email, autofocus: true, placeholder: "Email" %></div>
+
+  <div><br />
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %></div>
+
+  <div><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Re-type Password" %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
