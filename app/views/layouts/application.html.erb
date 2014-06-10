@@ -8,7 +8,10 @@
 </head>
 <body>
 <div class="fixedHeader">
-	<p>You are currently signed in as: <%= "#{current_user.fname}" %></p>
+	<% if user_signed_in? %>
+		<p>You are currently signed in as: <%= "#{current_user.fname}" %></p>
+	<% end %>
+
 </div>
 
 	

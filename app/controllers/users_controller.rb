@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-
+     redirect_to root_path
   end
 
   def edit
@@ -19,4 +19,5 @@ class UsersController < ApplicationController
 
   def delete
   end
+
 end
