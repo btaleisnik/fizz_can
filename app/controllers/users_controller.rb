@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-  
-  
   def new
   end
 
   def create
-     redirect_to root_path
+     # redirect_to root_path
   end
 
   def edit
