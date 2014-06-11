@@ -1,5 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+credentials = YAML.load_file("#{Rails.root}/config/credentials.yml")
+ENV['VENMO_CLIENT_ID'] = credentials['venmo_client_id']
+ENV['VENMO_CLIENT_SECRET'] = credentials['venmo_client_secret']
+
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -230,7 +234,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-config.omniauth :venmo, ENV['VENMO_CLIENT_ID'], ENV['VENMO_CLIENT_SECRET'] #:scope => 'access_profile,access_friends'
+  config.omniauth :venmo, ENV['VENMO_CLIENT_ID'], ENV['VENMO_CLIENT_SECRET'],
+    :scope => 'access_profile,access_friends'
 
 
   # ==> Warden configuration
