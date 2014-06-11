@@ -9,30 +9,41 @@
    <!-- Sign Up -->
      <%= render "devise/sessions/new" %>
 
-   </br>
-   </br>
-   </br>
-   </br>
-   </br>
-   </br>
-   </br>
-   </br>
-   </br>
-
-
      <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
      <%= link_to "Sign in with Venmo", user_omniauth_authorize_path(:venmo) %>
   </div>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
   <div id="sign_up_form">
   <!-- Sign-In -->
   <%= render "devise/registrations/new" %>
   </div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+  <p>All Users:</p>
+
+<% @users.each do |user| %>
+  <%= user.fname %>
+    <%= user.lname %>
+      <%= user.email %>
+  <% end %>
+
+
 </body>
 </html>
